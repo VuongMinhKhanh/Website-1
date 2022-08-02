@@ -1,0 +1,312 @@
+* {
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgb(240, 240, 151);
+}
+
+:root {
+    --topSlogan: 50%;
+    --boxShadow: inset 0 0 20px white, 0 0 20px violet;
+    --widthPic: 40%;
+    --heightButton: 110px;
+}
+
+body {
+    margin: 0px;
+}
+
+header /*Hero image*/ {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/custom-library.webp");
+    height: 100vh; /* For 100% screen height */
+    width: 100vw; /* For 100% screen width */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 10px;
+}
+
+nav .flex > li{
+    margin-right: 5px;
+    font-size: 1.1rem;
+}
+
+nav .flex > li a {
+    padding: 10px;
+    display: block;
+    transition: transform ease-in-out 0.25s;
+}
+.products {
+    position: relative;
+}
+
+.flex > li > a:hover {
+    animation: Shine 0.5s;
+}
+.product {
+    display: none !important;
+    position: absolute;
+    z-index: 1;
+    width: 9em;
+    padding: 0px;
+    margin: 0px !important;
+}
+
+/*x.product::after{
+    opacity: 1;
+    content: " ";
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent violet transparent;
+    position: absolute;
+    bottom: 100%;
+    left: 10%;
+}*/
+
+.products:hover .product{
+    display: block !important;
+    animation: Move 0.4s linear;
+}
+
+.scale li a:hover {
+    transform: scale(1.2);
+    transition-duration: 0.3s;
+}
+.logo img {
+    width: 20rem;
+    padding: 1rem;
+}
+
+@keyframes Shine {
+    0%{
+        border-radius: 100%;
+        box-shadow: var(--boxShadow);
+    }
+    50% {
+        border-radius: 0%;
+        box-shadow: var(--boxShadow);
+    }
+    100%{
+        box-shadow: none;
+    }
+}
+
+@keyframes Move {
+    from {
+        left: 100%;
+        opacity: 0;
+    }
+    to {
+        left: 0%;
+        opacity: 1;
+    }
+}   
+
+.slogan {
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    top: calc(100% - var(--topSlogan));  
+    text-align: center;
+    right: 0;
+    left: 0;
+    color: yellow;   
+}
+
+input {
+    width: 30rem;
+    height: 2rem;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgb(151, 147, 147);
+}
+
+.lookup a i {
+    transform: scale(1.2);
+    color: black;
+}
+    
+.innerSection {
+    padding: 50px 20px;
+    height: auto;
+    display: flex;
+    justify-content: between;
+}
+
+.innerSection > img {
+    width: var(--widthPic);
+}
+
+.content {
+    width: calc(100% - var(--widthPic));
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    margin: auto 0;
+}   
+
+.description {
+    font-size: 2rem;
+    padding: 10px;
+    font-family: Garamond, serif;
+    font-style: italic;
+}
+form {
+    height: var(--heightButton);
+}
+
+input[type=button] {
+    height: auto;
+    background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(151, 65, 252, 0.4) 0 15px 30px -5px;
+    color: #FFFFFF;
+    font-family: Phantomsans, sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    padding: 25px;
+    width: auto;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+input[type=button]:hover {
+    
+    animation: Jump 0.65s ease-in;
+    overflow: visible !important;  
+}
+
+@keyframes Jump {
+    10% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    75% {
+        transform: translateY(0px);
+    }
+}
+
+.c4-izmir {
+    display: block !important;
+}
+
+h2, h3 {
+    font-weight: 500;
+}
+
+@keyframes rollIn {
+    0% {
+        opacity: 0;
+        transform: translate(-100%) rotate(-120deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px) rotate(0deg);
+    }
+}
+
+.sponsors h3 {
+    text-align: center; 
+    animation: Jump2 2s infinite, rollIn 2s ease ;
+}   
+
+@keyframes Jump2 {
+    0% {
+        transform: translateY(0px);
+    }
+    15% {
+        transform: translateY(7px);
+    }
+    30% {
+        transform: translateY(-15px);
+    }
+    45% {
+        transform: translateY(5px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+    75% {
+        transform: translateY(0px);
+    }
+}
+
+
+.sponsors div {
+    justify-content: space-around;
+}
+
+.sponsors div img {
+    width: 400px;
+    animation: Rotate 7s infinite;
+    /*animation-timing-function: linear;*/  
+}
+
+@keyframes Rotate {
+    /*0% {
+        clip-path: polygon(26.14% 6.63%, 84.6% 31.18%, 73.85% 93.67%, 15.39% 68.81%);
+    } 
+    49%{
+        clip-path: polygon(20.08% 17.72%, 89.29% 28.01%, 79.91% 82.27%, 10.7% 71.98%);
+    }
+    51%{
+        clip-path: polygon(20.08% 17.72%, 89.29% 28.01%, 79.91% 82.27%, 10.7% 71.98%);
+    }
+    100%{
+        clip-path: polygon(26.14% 6.63%, 84.6% 31.18%, 73.85% 93.67%, 15.39% 68.81%);
+    }*/
+    /*
+        26.14
+        20.08
+        24.98
+        21.17
+        22.51
+        26.14
+    */    
+    0% {
+        clip-path: polygon(26.14% 6.63%, 84.6% 31.18%, 73.85% 93.67%, 15.39% 68.81%);
+    }
+    19% {
+        clip-path: polygon(20.08% 17.72%, 89.29% 28.01%, 79.91% 82.27%, 10.7% 71.98%);
+    }   
+    21% {
+        clip-path: polygon(20.08% 17.72%, 89.29% 28.01%, 79.91% 82.27%, 10.7% 71.98%);
+    }
+    39%{
+        clip-path: polygon(21.17% 11.77%, 90.29% 22.32%, 78.83% 88.23%, 9.77% 77.68%);
+    }
+    41% {
+        clip-path: polygon(21.17% 11.77%, 90.29% 22.32%, 78.83% 88.23%, 9.77% 77.68%);
+    }
+    59% {
+        clip-path: polygon(22.5% 27.41%, 86.91% 18.16%, 77.5% 72.59%, 13.08% 81.84%);
+    }
+    61% {
+        clip-path: polygon(22.5% 27.41%, 86.91% 18.16%, 77.5% 72.59%, 13.08% 81.84%);
+    }
+    79% {
+        clip-path: polygon(25.00% 13.07%, 86.79% 18.74%, 75% 86.92%, 13.2% 81.26%);
+    }
+    81% {
+        clip-path: polygon(25.00% 13.07%, 86.79% 18.74%, 75% 86.92%, 13.2% 81.26%);
+    }
+    100%{
+        clip-path: polygon(26.14% 6.63%, 84.6% 31.18%, 73.85% 93.67%, 15.39% 68.81%);
+    }
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+    color: gray;
+}
