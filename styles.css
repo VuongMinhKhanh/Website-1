@@ -217,7 +217,7 @@ h2, h3 {
 
 .sponsors h3 {
     text-align: center; 
-    animation: Jump2 2s infinite, rollIn 2s ease ;
+    
 }   
 
 @keyframes Jump2 {
@@ -241,14 +241,12 @@ h2, h3 {
     }
 }
 
-
 .sponsors div {
     justify-content: space-around;
 }
 
 .sponsors div img {
     width: 400px;
-    animation: Rotate 7s infinite;
     /*animation-timing-function: linear;*/  
 }
 
@@ -309,4 +307,22 @@ footer {
     text-align: center;
     font-style: italic;
     color: gray;
+}
+
+.reveal{
+    animation: none;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.reveal.active, .reveal.active img{
+    opacity: 1;
+}
+
+h3.reveal.active {
+    animation: Jump2 2s infinite, rollIn 2s ease !important;
+}
+
+.reveal.active img {
+    animation: Rotate 7s infinite;
 }
