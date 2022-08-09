@@ -8,7 +8,7 @@ $(document).ready(function(){
         {
             let windowHeight = window.innerHeight;
             let revealTop = revealElement[i].getBoundingClientRect().top;
-            let revealPoint = 150;
+            let revealPoint = 93;
             if (revealTop < windowHeight - revealPoint)
                 revealElement[i].classList.add('active');
             else 
