@@ -1,0 +1,186 @@
+* {
+    font-size: 1rem;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+:root {
+    --bunWidth: 1.5rem;
+    --touchButton: .4s;
+}
+
+nav > ul{
+    display: none !important;
+    flex-direction: column;
+}
+nav .flex > li{
+    font-size: 1.1rem;
+}
+/* hamburger bun */
+.burger-icon {
+    display: block;
+    position: absolute;
+    top: 1.8%;
+    right: 1.8%;
+    width: var(--bunWidth);
+}
+
+.burger div {
+    height: 2px;
+    background-color: white;
+    margin: calc(var(--bunWidth) / 4) 0;
+    border-radius: 20px;
+}
+
+.topBun {
+    width: 50%;
+}
+
+.bottomBun {
+    margin-left: 50% !important;
+    width: 50%;
+}
+
+/* .patty {
+} */
+/* nav for mobile */
+.navMobile li a {
+    padding: 10px;
+    display: block;
+}
+
+.products:hover .product{
+    display: block;
+}
+
+.product{
+    text-align: center;
+    position: relative;
+}
+
+.fa-magnifying-glass {
+    display: none;
+}
+
+.slogan h1 {
+    font-size: 1.2rem;
+}
+
+.innerSection > img {
+    width: 40%;
+    height: auto;
+}
+.description h2, .description h3 {
+    font-size: 1.5rem;
+}
+
+.sponsors.description {
+    margin-bottom: 0.7rem;
+}
+/*add jQ*/
+.mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    top: 20%;
+    left: 25%;
+    right: 25%;/* đáng lẽ phải là top left 50% luôn???
+    transform: translate(50%, 0%) scale(1);*/
+    border-radius: 1rem;
+    animation: zoomNav var(--touchButton) ease-out !important;
+    z-index: 100;
+}
+
+.open {
+    display: block !important;
+    animation: downSlide 1s ease-out ;
+}
+
+.topBunRotate {
+    animation: rollTopBun var(--touchButton) ease-in-out;
+    
+}
+.afterTop {
+    transform: translate(11%,180%) rotate(-135deg);
+}
+.bottomBunRotate {
+    animation: rollBottomBun var(--touchButton) ease-in-out;
+    
+}
+.afterBottom {
+    transform: translate(-11%,-180%) rotate(-135deg);
+}
+.pattyRotate {
+    animation: rollPatty var(--touchButton) ease-in-out;
+    
+}
+.afterPatty {
+    transform: rotate(-45deg);
+}
+@keyframes downSlide {
+    0% {
+        opacity: 0;
+        top: 10%;
+    }
+    90% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomNav {
+    0% {
+        /* transform: translate(100%, 0%) scale(0); */
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        top: 20%;
+        right: 25%;
+        left: 25%;
+        transform: scale(1); 
+        /*transform: translate(50%, 20%) scale(1);*/
+        opacity: 1;
+    }
+}
+
+@keyframes rollTopBun {
+    0% {
+        transform: translate(0,0) rotate(0deg);
+    }
+    10% {
+        transform: translate(0,0) rotate(35deg);
+    }
+    100% {
+        transform: translate(11%,180%) rotate(-135deg);
+    }
+}
+
+@keyframes rollBottomBun {
+    0% {
+        transform: translate(0,0) rotate(0deg);
+    }
+    10% {
+        transform: translate(0,0) rotate(35deg);
+    }
+    to {
+        transform: translate(-11%,-180%) rotate(-135deg);
+    }
+}
+
+@keyframes rollPatty {
+    from {
+        transform: translate(0,0) rotate(0);
+    }
+    10% {
+        transform: translate(0,0) rotate(10deg);
+    }
+    to {
+        transform: rotate(-45deg);
+    }
+}
+/*https://codepen.io/nikkk-me/pen/LYYWexL?editors=1100
+ make subnav appear one by one automatically */

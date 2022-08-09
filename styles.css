@@ -4,15 +4,16 @@
     box-sizing: border-box;
 }
 
-a {
-    color: rgb(240, 240, 151);
-}
-
 :root {
     --topSlogan: 50%;
     --boxShadow: inset 0 0 20px white, 0 0 20px violet;
     --widthPic: 40%;
     --heightButton: 110px;
+    --linkColor: rgb(240, 240, 151);
+}
+
+a {
+    color: var(--linkColor);
 }
 
 body {
@@ -27,16 +28,42 @@ header /*Hero image*/ {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.logo img {
+    width: 100%;
+    padding: 1rem;
+}
+
+i.fa-bars {
+    color: var(--linkColor);
+    font-size: 1.5rem;
+    display: none;
+    margin-right: 0;
+}
 .flex {
     display: flex;
     justify-content: space-between;
     align-content: center;
     padding: 10px;
+    align-items: center;
+}
+
+.burger-icon{
+    display: none;
+}
+
+.navMobile {
+    display: none;
+    position: fixed;
+    background-image: linear-gradient(to top right, black, gray);
+    /* transform: translate(100%, 0%) scale(0); */
+    width: 50%;
+    padding: 0;
+    z-index: 3;
 }
 
 nav .flex > li{
     margin-right: 5px;
-    font-size: 1.1rem;
 }
 
 nav .flex > li a {
@@ -60,7 +87,7 @@ nav .flex > li a {
     margin: 0px !important;
 }
 
-/*x.product::after{
+/*.product::after{
     opacity: 1;
     content: " ";
     border-width: 10px;
@@ -70,19 +97,17 @@ nav .flex > li a {
     bottom: 100%;
     left: 10%;
 }*/
+@media screen and (min-width: 501px) {
+    .products:hover .product{
+        display: block !important;
+        animation: Move 0.4s linear;
+    }
+ }
 
-.products:hover .product{
-    display: block !important;
-    animation: Move 0.4s linear;
-}
 
 .scale li a:hover {
     transform: scale(1.2);
     transition-duration: 0.3s;
-}
-.logo img {
-    width: 20rem;
-    padding: 1rem;
 }
 
 @keyframes Shine {
@@ -120,8 +145,8 @@ nav .flex > li a {
     color: yellow;   
 }
 
-input {
-    width: 30rem;
+input[type=text] {
+    width: 90%;
     height: 2rem;
     border-radius: 4px;
     box-shadow: 2px 2px 4px rgb(151, 147, 147);
@@ -140,7 +165,7 @@ input {
 }
 
 .innerSection > img {
-    width: var(--widthPic);
+    height: 90vh;
 }
 
 .content {
@@ -157,7 +182,9 @@ input {
     padding: 10px;
     font-family: Garamond, serif;
     font-style: italic;
+    z-index: 1001;
 }
+
 form {
     height: var(--heightButton);
 }
@@ -198,6 +225,7 @@ input[type=button]:hover {
 
 .c4-izmir {
     display: block !important;
+    --border-color: #979aab !important;
 }
 
 h2, h3 {
@@ -217,7 +245,6 @@ h2, h3 {
 
 .sponsors h3 {
     text-align: center; 
-    
 }   
 
 @keyframes Jump2 {
@@ -241,13 +268,18 @@ h2, h3 {
     }
 }
 
-.sponsors div {
+.sponsors > div {
     justify-content: space-around;
+    overflow: scroll;
+    white-space: nowrap;
+}
+
+.sponsors div {
+    width: 100%;
 }
 
 .sponsors div img {
-    width: 400px;
-    /*animation-timing-function: linear;*/  
+    width: 33%;
 }
 
 @keyframes Rotate {
@@ -308,7 +340,7 @@ footer {
     font-style: italic;
     color: gray;
 }
-
+/* add JS */
 .reveal{
     animation: none;
     opacity: 0;
