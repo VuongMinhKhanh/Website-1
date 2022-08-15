@@ -10,6 +10,7 @@
     --widthPic: 40%;
     --heightButton: 110px;
     --linkColor: rgb(240, 240, 151);
+    --moreBooks: .4s;
 }
 
 a {
@@ -45,6 +46,7 @@ i.fa-bars {
     justify-content: space-between;
     align-content: center;
     padding: 10px;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -53,13 +55,27 @@ i.fa-bars {
 }
 
 .navMobile {
-    display: none;
+    display: flex;
+    top: 20%;
+    right: 25%;
+    left: 25%;
+    border-radius: 1rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     position: fixed;
     background-image: linear-gradient(to top right, black, gray);
-    /* transform: translate(100%, 0%) scale(0); */
+    transition: var(--touchButton);
+    transform: scale(0);
+    opacity: 0;
     width: 50%;
     padding: 0;
     z-index: 3;
+    text-align: center;
+}
+
+.arrow {
+    transition: var(--touchButton);
 }
 
 nav .flex > li{
@@ -102,8 +118,7 @@ nav .flex > li a {
         display: block !important;
         animation: Move 0.4s linear;
     }
- }
-
+}
 
 .scale li a:hover {
     transform: scale(1.2);
@@ -158,16 +173,125 @@ input[type=text] {
 }
     
 .innerSection {
-    padding: 50px 20px;
+    padding: 20px 20px;
     height: auto;
     display: flex;
-    justify-content: between;
+    justify-content: space-between;
 }
 
-.innerSection > img {
+form {
+    padding: 0.2rem;
+}
+
+.innerSection > a  {
     height: 90vh;
 }
 
+.picFrame{
+    position: relative;
+}
+
+.picFrame > input[type=button] {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    background: transparent;
+    border: transparent;
+    font-size: 1.1rem; 
+    font-weight: bold;
+    font-style: italic;
+}
+
+.picFrame > input[type=button]:hover, .close:hover{
+    color: aquamarine;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.close {
+    position: absolute;
+    color: violet;
+    transition: 0.25s;
+    right: 1.5rem;
+}
+/* 
+:not(.moreImages) {
+    filter: blur(2px);
+}*/ 
+.moreImages {
+    opacity: 0;
+    transform: scale(0);
+    position: fixed;
+    top: -40%;
+    left: -50%;
+    transition: var(--moreBooks);
+    z-index: 1000;
+}
+
+.moreImages .flex {
+    top: 25%;
+    margin: 1rem 0;    
+    justify-content: space-around !important;
+}
+.moreImage {
+    width: calc(100% / 6);
+    padding: 0.5rem;
+}
+
+.moreImage img {
+    width: 100%;
+    box-shadow: 3px 4px gray;
+    transition: 0.25s;
+}
+
+.moreImage img:hover {
+    transition: 0.25s;
+    box-shadow: 4px 5px black;
+}
+
+.moreBooks {
+    position: absolute;
+    background-color: #fee6e3;
+    border: 2px solid black;
+    border-radius: 8px;
+    color: black;
+    cursor: pointer;
+    font-family: Inter,sans-serif;
+    font-size: 16px;
+    height: 48px;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: absolute;
+    right: 1.5rem;
+    text-align: center;
+    
+}
+
+.moreBooks::after {
+    background-color: black;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 3rem;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform .2s ease-out;
+    z-index: -1;
+}
+
+.moreBooks:hover::after {
+  transform: translate(0, 0);
+}
+
+@media (min-width: 501px) {
+    .moreBooks {
+        padding: 0 40px;
+    }
+}
 .content {
     width: calc(100% - var(--widthPic));
     text-align: center;
@@ -188,7 +312,7 @@ form {
     height: var(--heightButton);
 }
 
-input[type=button] {
+.content input[type=button] {
     height: auto;
     background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
     border: 0;
@@ -204,8 +328,7 @@ input[type=button] {
     overflow: hidden;
 }
 
-input[type=button]:hover {
-    
+.content input[type=button]:hover {
     animation: Jump 0.65s ease-in;
     overflow: visible !important;  
 }
@@ -356,4 +479,13 @@ h3.reveal.active {
 
 .reveal.active img {
     animation: Rotate 7s infinite;
+}
+
+/* add jQ */
+.appear {
+    opacity: 1;
+    transform: scale(1);
+    top: 25%;
+    left: 0%;
+    transition: var(--moreBooks);
 }
