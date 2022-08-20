@@ -9,28 +9,36 @@ $(document).ready(function(){
             let windowHeight = window.innerHeight;
             let revealTop = revealElement[i].getBoundingClientRect().top;
             let revealPoint = 100;
+
             if (revealTop < windowHeight - revealPoint)
                 revealElement[i].classList.add('active');
             else 
                 revealElement[i].classList.remove('active'); 
         }
     }
+
+    //
     $(".burger-icon").click(function() {
         $(".navMobile").toggleClass("mobile");
         $(this).toggleClass("touched2");
     });
+    //
+
     $(".products > a").click(function() {
         $(".product").toggleClass("open");
         $(".arrow").toggleClass("arrowRotate");
     });
+
+    //
     $(".picFrame > input[type=button]").click(function() {
         $(this).next().addClass("appear");//next = .moreImages
     })
+
+    //
     $(".close, a").click(function() {
         //:not(.picFrame > input[type=button])
         $(".moreImages").removeClass("appear");
     })
-    
 }); 
 
 
